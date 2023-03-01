@@ -13,7 +13,7 @@ public class SortDemo {
 		}
 		System.out.println();
 		
-		Quicksort.qsort(a);
+		Quicksort2.qsort(a);
 		
 		System.out.print("Sorted char array: ");
 		for(i=0; i < a.length; i++) {

@@ -20,17 +20,21 @@ public class Quicksort {
 	// character
 	private static void qs(char items[], int left, int right) {
 		int i, j;
-		char x, y;
+		char comparand, y;
 		
-		i = left; j = right;
-		x = items[(left+right)/2];
+		i = left;  // starts at 0
+		j = right; // right starts at items.length-1
+		comparand = items[(left+right)/2]; // finds the point in the center of the array 
 		
 		do {
-			while((items[i] < x) && (i < right)) i ++;
-			while(( x< items[j]) && (j > left)) j--;
-			
-			if(i <= j) {
-				y = items[i];
+			while((items[i] < comparand) && (i < right)) i ++; // while the first position's value is less than the comparand and also the
+															   // the first position is less than the rightmost position
+			while(( comparand < items[j]) && (j > left)) j--;  // while comparand is less then the value of the right position pointer
+															   // and also the right position is greater than the left position pointer
+																  
+			// swap
+			if(i <= j) {									    // if the left position is less than or equal to the right position
+				y = items[i];									// swap the items[i] and items[j] values.
 				items[i] = items[j];
 				items[j] = y;
 				i++; j--;
