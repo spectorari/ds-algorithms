@@ -12,7 +12,7 @@ public class CircularQueue implements ICharQ {
 	}
 
 	@Override
-	public void put(char ch) {
+	public void put(char ch) throws QueueFullException {
 		/*
 		 * Queue is full if either putLoc is one less than getLoc, or it putLoc is at
 		 * the end of the array and getLoc is at the beginning
@@ -27,7 +27,7 @@ public class CircularQueue implements ICharQ {
 	}
 
 	@Override
-	public char get() {
+	public char get() throws QueueEmptyException {
 		if (getLoc == putLoc) {
 			System.out.println(" - Queue is empty.");
 			return (char) 0;

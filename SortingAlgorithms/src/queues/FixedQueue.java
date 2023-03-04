@@ -13,21 +13,20 @@ public class FixedQueue implements ICharQ {
 
 	// Put a character into the queue
 	@Override
-	public void put(char ch) {
-		if (putLoc == q.length) {
-			System.out.println(" - Queue is full.");
-			return;
-		}
+	public void put(char ch) throws QueueFullException {
+
+		if (putLoc == q.length)
+			throw new QueueFullException(q.length);
 		q[putLoc++] = ch;
 	}
 
 	// Get a character from the queue.
 	@Override
-	public char get() {
-		if (getLoc == putLoc) {
-			System.out.println(" - Queue is empty.");
-			return (char) 0;
-		}
+	public char get() throws QueueEmptyException {
+
+		if (getLoc == putLoc)
+			throw new QueueEmptyException();
+
 		return q[getLoc++];
 	}
 }

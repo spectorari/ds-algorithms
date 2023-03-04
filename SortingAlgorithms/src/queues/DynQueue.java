@@ -13,7 +13,7 @@ public class DynQueue implements ICharQ {
 	
 	// Put a character into the queue
 	@Override
-	public void put(char ch) {
+	public void put(char ch) throws QueueFullException {
 		if (putLoc == q.length) {
 			// increase queue size
 			char t[] = new char[q.length * 2];
@@ -28,7 +28,7 @@ public class DynQueue implements ICharQ {
 	
 	// Get a character from the queue
 	@Override
-	public char get() {
+	public char get() throws QueueEmptyException {
 		if (getLoc == putLoc) {
 			System.out.println(" - Queue is empty.");
 			return (char) 0;
